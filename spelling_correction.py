@@ -9,7 +9,9 @@ def find_match(source_word):
 	# min_dist = len(source_word) * 2
 	optimal_words = []
 
-	target_file = open('dict.txt', 'r')
+	target_file = open('common_words.txt', 'r')
+
+	# FIXME: Runtime of this is O(n^2). Can we improve this?
 	for line in target_file:
 		target_word = line.rstrip()
 

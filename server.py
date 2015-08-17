@@ -14,7 +14,7 @@ def home():
 def get_corrected_text():
 	"""Returns the corrected sentence"""
 
-	sentence = request.form.get('sentence')
+	sentence = request.form.get('sentence').lower()
 	sentence = sentence.split()
 	correct_sentence = []
 
@@ -23,6 +23,7 @@ def get_corrected_text():
 		correct_sentence.append(correction)
 
 	correct_sentence = ' '.join(correct_sentence)
+	correct_sentence = correct_sentence.capitalize() + '!'
 	return correct_sentence
 
 

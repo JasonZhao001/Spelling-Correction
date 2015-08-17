@@ -5,6 +5,11 @@
 	body {
 		text-align: center;
 	}
+
+	.hidden {
+		display: none;
+	}
+
 	</style>
 	<title></title>
 </head>
@@ -19,7 +24,7 @@
 		</label>
 	</form>
 	<p id="correct-sentence"></p>
-	<img id="loader" src="">
+	<img id="loader" src="/static/loading.gif" class="hidden">
 
 	<script src="https://code.jquery.com/jquery.js"></script>
 	<script>
@@ -29,11 +34,11 @@
 		sentence = $('#sentence').val();
 		formInputs = { sentence: sentence }
 
-		$('img').attr('src', '/static/loading.gif');
+		$('img').removeClass('hidden');
 
 		$.post('/', formInputs, function(result) {
 			$('#correct-sentence').text(result);
-			$('img').removeAttr('src');
+			$('img').addClass('hidden');
 		});
 	}
 
