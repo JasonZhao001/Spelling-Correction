@@ -2,11 +2,11 @@ from edit_dist import distance
 from random import choice
 
 
-
-def find_matches(source_word):
+def find_match(source_word):
 	"""Finds the best match for a source word"""
 
-	min_dist = len(source_word) * 2
+	min_dist = 100
+	# min_dist = len(source_word) * 2
 	optimal_words = []
 
 	target_file = open('dict.txt', 'r')
@@ -22,7 +22,6 @@ def find_matches(source_word):
 			# re-initialize the list, with only this word as a possible correction
 			optimal_words = [target_word]
 
-	print choice(optimal_words)
 	return choice(optimal_words)
 
 
@@ -34,7 +33,7 @@ def spellcheck_file():
 	# iterate thru source & target words
 	for line in source_file:
 		source_word = line.rstrip()
-		find_matches(source_word)
+		print find_match(source_word)
 
 
 

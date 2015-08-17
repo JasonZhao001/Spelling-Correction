@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+	body {
+		text-align: center;
+	}
+	</style>
+	<title></title>
+</head>
+<body>
+	<h2>Online Spell Checker</h2>
+	<form>
+		<label>
+			<input id="sentence" type="text" name="sentence" placeholder="Your text here">
+		</label>
+		<label>
+			<input id="submit-btn" type="submit">
+		</label>
+	</form>
+	<p id="correct-sentence"></p>
+	<img id="loader" src="">
+
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<script>
+
+	function handleSubmit(evt) {
+		evt.preventDefault();
+		sentence = $('#sentence').val();
+		formInputs = { sentence: sentence }
+
+		$('img').attr('src', '/static/loading.gif');
+
+		$.post('/', formInputs, function(result) {
+			$('#correct-sentence').text(result);
+			$('img').removeAttr('src');
+		});
+	}
+
+	$('#submit-btn').click(handleSubmit);
+
+	</script>
+</body>
+</html>
