@@ -27,5 +27,6 @@ def correct_spelling():
 
 		print choice(optimal_words)
 
+
 if __name__ == '__main__':
 	correct_spelling()
