@@ -2,16 +2,19 @@
 ##############################################################
 # Helper functions
 
-def ins_cost(string):
-    return 1
+def ins_cost(letter):
+	if letter == 'e':
+		return 0
+	else:
+	    return 1
 
-def sub_cost(string1, string2):
-    if string1 == string2:
+def sub_cost(letter1, letter2):
+    if letter1 == letter2:
         return 0
     else:
         return 2
 
-def del_cost(string):
+def del_cost(letter):
     return 1
 
 ##############################################################
